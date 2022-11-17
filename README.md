@@ -78,28 +78,56 @@ Fitur Furnishing Status memiliki pengaruh cukup besar terhadap rata-rata harga s
 -Fitur Tenant Preferred
 Fitur Tenant Preferred memiliki pengaruh yang lumayan terhadap rata-rata harga sewa. Dari grafik dapat terlihat bahwa rumah yang sangat disarankan untuk disewa oleh keluarga memiliki rata-rata harga sewa yang lebih mahal dibanding lainnya.
 # Data preparation
--One Hot Encoding
+One Hot Encoding
 One hot encoding adalah teknik mengubah data kategorik menjadi data numerik dimana setiap kategori menjadi kolom baru dengan nilai 0 atau 1. Fitur yang akan diubah menjadi numerik pada proyek ini adalah Area Type, City, Furnishing Status, dan Tenant Preferred.
--Train Test Split
+
+Train Test Split
 Train test split aja proses membagi data menjadi data latih dan data uji. Data latih akan digunakan untuk membangun model, sedangkan data uji akan digunakan untuk menguji performa model. Pada proyek ini dataset sebesar 3696 dibagi menjadi 3511 untuk data latih dan 185 untuk data uji.
--Normalization
+
+Normalization
 Algoritma machine learning akan memiliki performa lebih baik dan bekerja lebih cepat jika dimodelkan dengan data seragam yang memiliki skala relatif sama. Salah satu teknik normalisasi yang digunakan pada proyek ini adalah Standarisasi dengan sklearn.preprocessing.StandardScaler.
+
 # Modeling
-Algoritma Penelitian ini melakukan pemodelan dengan 3 algoritma, yaitu K-Nearest Neighbour, Random Forest, dan
+Algoritma Penelitian ini melakukan pemodelan dengan 3 algoritma, yaitu K-Nearest Neighbour, Random Forest, dan Adaboost
 
 K-Nearest Neighbour K-Nearest Neighbour bekerja dengan membandingkan jarak satu sampel ke sampel pelatihan lain dengan memilih sejumlah k tetangga terdekat. Proyek ini menggunakan sklearn.neighbors.KNeighborsRegressor dengan memasukkan X_train dan y_train dalam membangun model. Parameter yang digunakan pada proyek ini adalah :
 
 n_neighbors = Jumlah k tetangga tedekat.
+
+Kelebihan
+Dapat menerima data yang masih noisy
+Sangat efektif apabila jumlah datanya banyak
+Mudah diimplementasikan
+
+Kekurangan
+Sensitif pada outlier
+Rentan pada fitur yang kurang informatif
+
 Random Forest Algoritma random forest adalah teknik dalam machine learning dengan metode ensemble. Teknik ini beroperasi dengan membangun banyak decision tree pada waktu pelatihan. Proyek ini menggunakan sklearn.ensemble.RandomForestRegressor dengan memasukkan X_train dan y_train dalam membangun model. Parameter yang digunakan pada proyek ini adalah :
 
 n_estimators = Jumlah maksimum estimator di mana boosting dihentikan.
 max_depth = Kedalaman maksimum setiap tree.
 random_state = Mengontrol seed acak yang diberikan pada setiap base_estimator pada setiap iterasi boosting.
-Adaboost AdaBoost juga disebut Adaptive Boosting adalah teknik dalam machine learning dengan metode ensemble. Algoritma yang paling umum digunakan dengan AdaBoost adalah pohon keputusan (decision trees) satu tingkat yang berarti memiliki pohon Keputusan dengan hanya 1 split. Pohon-pohon ini juga disebut Decision Stumps. Algoritma ini bertujuan untuk meningkatkan performa atau akurasi prediksi dengan cara menggabungkan beberapa model sederhana dan dianggap lemah (weak learners) secara berurutan sehingga membentuk suatu model yang kuat (strong ensemble learner). Proyek ini menggunakan sklearn.ensemble.AdaBoostRegressor dengan memasukkan X_train dan y_train dalam membangun model. Parameter yang digunakan pada proyek ini adalah :
+Kelebihannya 
+Dapat mengatasi noise dan missing value
+Dapat mengatasi data dalam jumlah yang besar
+
+Kelemahan 
+Interpretasi yang sulit 
+Membutuhkan tuning model yang tepat untuk data
+
+AdaBoost juga disebut Adaptive Boosting adalah teknik dalam machine learning dengan metode ensemble. Algoritma yang paling umum digunakan dengan AdaBoost adalah pohon keputusan (decision trees) satu tingkat yang berarti memiliki pohon Keputusan dengan hanya 1 split. Pohon-pohon ini juga disebut Decision Stumps. Algoritma ini bertujuan untuk meningkatkan performa atau akurasi prediksi dengan cara menggabungkan beberapa model sederhana dan dianggap lemah (weak learners) secara berurutan sehingga membentuk suatu model yang kuat (strong ensemble learner). Proyek ini menggunakan sklearn.ensemble.AdaBoostRegressor dengan memasukkan X_train dan y_train dalam membangun model. Parameter yang digunakan pada proyek ini adalah :
 
 n_estimators = Jumlah maksimum estimator di mana boosting dihentikan.
 learning_rate = Learning rate memperkuat kontribusi setiap regressor.
 random_state = Mengontrol seed acak yang diberikan pada setiap base_estimator pada setiap iterasi boosting.
+Kelebihan 
+relatif lebih mudah untuk diimplementasikan dan waktu
+pengujian yang relatif cepat sehingga cocok dipakai dalam
+implementasi kondisi real time
+Kelemahan
+Pendekatan ini tidak berfungsi dengan baik ketika ada korelasi antara fitur atau dimensi data yang tinggi.
+
 # Hyperparameter Tuning (Grid Search) 
 Hyperparameter tuning adalah cara untuk mendapatkan parameter terbaik dari algoritma dalam membangun model. Salah satu teknik dalam hyperparameter tuning yang digunakan dalam proyek ini adalah grid search. Berikut adalah hasil dari Grid Search pada proyek ini :
 
@@ -111,6 +139,7 @@ rf	{'max_depth': 8, 'n_estimators': 25, 'random_stste': 11}
 # Evaluation
 Metrik evaluasi yang digunakan pada proyek ini adalah akurasi dan mean squared error (MSE). Akurasi menentukan tingkat kemiripan antara hasil prediksi dengan nilai yang sebenarnya (y_test). Mean squared error (MSE) mengukur error dalam model statistik dengan cara menghitung rata-rata error dari kuadrat hasil aktual dikurang hasil prediksi. Berikut formulan MSE :
 ![188412654-f5dc0ae1-901b-470e-aae5-1f6b5fb68b4d](https://user-images.githubusercontent.com/108644038/202385245-87d6932e-d8a7-428e-8d90-8ac0850a216d.png)
+
 Berikut hasil evaluasi pada proyek ini :
 Akurasi
 model	accuracy
@@ -119,4 +148,5 @@ boosting	0.898556
 rf	0.932057
 Mean Squared Error (MSE)
 ![188413846-7d5454b5-7f83-488e-836f-4f3593eb3d5d](https://user-images.githubusercontent.com/108644038/202385385-e7b44f0f-3986-4fa0-836d-e34893d17787.png)
+
 Dari hasil evaluasi dapat dilihat bahwa model dengan algoritma Random Forest memiliki akurasi lebih tinggi tinggi dan tingkat error lebih kecil dibandingkan algoritma lainnya dalam proyek ini.
