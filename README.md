@@ -28,18 +28,31 @@ Dataset memiliki 4 fitur bertipe int64 dan 8 fitur bertipe object.
 Tidak ada missing value dalam dataset.
 # Variable - variable pada dataset
 Posted On: Tanggal data diposting.
-BHK: Jumlah dari kamar tidur, aula, dan dapur.
-Rent: Harga sewa dari rumah/apartemen.
-Size: Luas dari rumah/apartemen dalam square feet (sqft).
-Floor: Letak dan jumlah lantai rumah/apartemen.
-Area Type: Ukuran dari rumah dalam kategori Super Area atau Carpet Area atau Build Area.
-Area Locality: Lokasi rumah/apartemen.
-City: Kota dimana rumah/apartemen berada.
-Furnishing Status: Status perabotan rumah/apartemen, baik Furnished atau Semi-Furnished atau Unfurnished.
-Tenant Preferred: Jenis penyewa yang diutamakan pemilik atau agen.
-Bathroom: Jumlah kamar mandi.
-Point of Contact: Kontak yang dihubungi untuk informasi lebih lanjut mengenai rumah/apartemen.
+
+BHK: Jumlah Kamar Tidur, Aula, Dapur.
+
+Rent: Sewa Rumah/Apartemen/Rusun
+
+Size: Ukuran Rumah/Apartemen/Flat di Kaki Persegi.
+
+Floor: Rumah/Apartemen/Rusun yang terletak di Lantai mana dan Total Jumlah Lantai (Contoh: Tanah dari 2, 3 dari 5, dll.)
+
+Area Type: Ukuran Rumah/Apartemen/Rusun yang dihitung berdasarkan Area Super atau Area Karpet atau Area Bangun.
+
+Area Locality: Lokalitas Rumah/Apartemen/Rusun.
+
+City: Kota tempat Rumah/Apartemen/Rusun berada.
+
+Furnishing Status: Status Furnishing Rumah/Apartemen/Rusun, baik Furnished atau Semi-Furnished atau Unfurnished.
+
+Tenant Preferred: Jenis Penyewa Pilihan Pemilik atau Agen.
+
+Bathroom: Jumlah Kamar Mandi.
+
+Point of Contact: Siapa yang harus Anda hubungi untuk informasi lebih lanjut mengenai Rumah/Apartemen/Rusun.
+
 Dari ke 12 fitur dapat dilihat bahwa fitur Point of Contract dan Posted On tidak mempengaruhi harga sewa rumah sehingga akan dihapus. Hal ini dikarenakan kedua fitur tersebut tidak diperlukan dalam membangun model prediksi harga sewa.
+
 # EDA
 # Univariate Analysis
 Univariate Analysis adalah menganalisis setiap fitur secara terpisah.
