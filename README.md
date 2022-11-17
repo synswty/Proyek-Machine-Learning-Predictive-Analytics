@@ -162,3 +162,4 @@ Mean Squared Error (MSE)
 ![188413846-7d5454b5-7f83-488e-836f-4f3593eb3d5d](https://user-images.githubusercontent.com/108644038/202385385-e7b44f0f-3986-4fa0-836d-e34893d17787.png)
 
 Dari hasil evaluasi dapat dilihat bahwa model dengan algoritma Random Forest memiliki akurasi lebih tinggi tinggi dan tingkat error lebih kecil dibandingkan algoritma lainnya dalam proyek ini.
+
