@@ -155,10 +155,9 @@ Metrik evaluasi yang digunakan pada proyek ini adalah akurasi dan mean squared e
 
 Berikut hasil evaluasi pada proyek ini :
 Akurasi
-model	accuracy
-knn	0.726775
-boosting	0.898556
-rf	0.932057
+           knn	     rf       boosting
+accuracy	0.726775	0.932057	0.898556
+
 Mean Squared Error (MSE)
 ![188413846-7d5454b5-7f83-488e-836f-4f3593eb3d5d](https://user-images.githubusercontent.com/108644038/202385385-e7b44f0f-3986-4fa0-836d-e34893d17787.png)
 
